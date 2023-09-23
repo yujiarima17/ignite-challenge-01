@@ -1,13 +1,8 @@
 .wrapper {
-  display: grid;
-  margin: 2rem auto;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  margin:0 auto;
   align-items: start;
-
 }
-.wrapper main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.wrapper main {
+  max-width: 46rem;
+  margin: 0 auto;
 }
