@@ -7,9 +7,6 @@ function App() {
     <>
       <Header></Header>
       <div className={styles.wrapper}>
-        <div className="form">
-          <form action=""></form>
-        </div>
         <main>
           <TasksTable />
         </main>
