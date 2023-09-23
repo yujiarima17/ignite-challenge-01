@@ -1,0 +1,13 @@
+.emptyAdviser {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  color: var(--gray-300);
+  margin:  auto;
+}
+
+.emptyAdviser p span{
+    display: block;
+    font-weight: bold;
+}
