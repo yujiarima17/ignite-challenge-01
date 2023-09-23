@@ -3,10 +3,28 @@
   grid-template-rows: 54px 1fr;
   gap: 2rem;
 }
+.tasksList {
+  display: grid;
+  grid-template-rows: 19px 1fr;
+  gap: 24px;
+}
 .taskForm {
   display: grid;
   grid-template-columns: 6.93fr 1fr;
   gap: 8px;
+}
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+}
+.statusBar div span{
+    padding: 0 2px;
+    background: var(--gray-400);
+    color: var(--gray-200);
+    font-size: var(--small-font);
+    font-weight: bold;
+    border-radius: 8px;
+   
 }
 .taskForm input {
   background: var(--gray-500);
@@ -31,4 +49,12 @@
   align-items: center;
   justify-content: center; /* Centraliza os itens verticalmente */
 }
-
+.tarefaConcluida {
+  color: var(--blue);
+}
+.concluida {
+  color: var(--purple);
+}
+.taskBoard {
+  border-top: 1px solid var(--gray-400);
+}

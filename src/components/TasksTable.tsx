@@ -10,7 +10,17 @@ export function TasksTable() {
             Criar <PlusCircle size={20} />
           </button>
         </form>
-        <div className="tasks-list"></div>
+        <div className={styles.tasksList}>
+          <div className={styles.statusBar}>
+            <div className={styles.tarefaConcluida}>
+              Tarefas Criadas <span>0</span>
+            </div>
+            <div className={styles.concluida}>
+              Concluídas <span>0</span>
+            </div>
+          </div>
+          <div className={styles.taskBoard}></div>
+        </div>
       </div>
     </>
   );
