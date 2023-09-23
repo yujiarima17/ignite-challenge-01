@@ -1,0 +1,14 @@
+.task {
+  display: grid;
+  background: var(--gray-500);
+  border: 1.5px solid var(--gray-400);
+  grid-template-columns: 0.5fr 8.5fr 1fr;
+  gap: 12px;
+  height: fit-content;
+  border-radius: 8px;
+  color: var(--gray-300);
+  padding: 16px 16px;
+}
+.task p {
+  color: var(--gray-100);
+}

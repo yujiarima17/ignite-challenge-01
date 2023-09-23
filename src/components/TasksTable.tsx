@@ -1,6 +1,7 @@
 import styles from "../css/TasksTable.module.css";
 import { PlusCircle } from "phosphor-react";
 import { EmptyList } from "./EmptyList";
+import { Task } from "./Task";
 export function TasksTable() {
   return (
     <>
@@ -21,7 +22,7 @@ export function TasksTable() {
             </div>
           </div>
           <div className={styles.taskBoard}>
-            <EmptyList></EmptyList>
+            <Task ></Task>
           </div>
         </div>
       </div>
