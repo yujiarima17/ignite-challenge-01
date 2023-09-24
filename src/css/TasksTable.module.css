@@ -18,7 +18,8 @@
   justify-content: space-between;
 }
 .statusBar div span {
-  padding: 0 2px;
+  display: inline-block;
+  padding: 2 px;
   background: var(--gray-400);
   color: var(--gray-200);
   font-size: var(--small-font);
@@ -60,4 +61,6 @@
   border-top: 1px solid var(--gray-400);
   display: flex;
   min-height: 267px;
+  row-gap: 12px;
+  flex-direction: column;
 }

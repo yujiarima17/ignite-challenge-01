@@ -1,15 +1,15 @@
 import { Trash } from "phosphor-react";
 import styles from "../css/Task.module.css";
 import { Checkbox } from "./Checkbox";
-export function Task() {
+interface TaskProp {
+  isComplete: boolean;
+  text: string;
+}
+export function Task({ text, isComplete }: TaskProp) {
   return (
     <div className={styles.task}>
       <Checkbox />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam
-        necessitatibus unde et earum pariatur omnis quo natus ut? Autem sapiente
-        illum animi ex magnam quo aliquam maxime hic explicabo?
-      </p>
+      <p>{text}</p>
       <Trash size={20} />
     </div>
   );
