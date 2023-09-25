@@ -14,3 +14,6 @@
 .task p {
   color: var(--gray-100);
 }
+.completed{
+  text-decoration: line-through;
+}

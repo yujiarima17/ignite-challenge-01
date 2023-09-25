@@ -1,15 +1,18 @@
 import { Trash } from "phosphor-react";
 import styles from "../css/Task.module.css";
-import { Checkbox } from "./Checkbox";
+import { CheckBox } from "./CheckBox";
+import { ChangeEventHandler } from "react";
+
 interface TaskProp {
-  isComplete: boolean;
   text: string;
+  isCompleted: boolean;
+  changeIsComplete: ChangeEventHandler<HTMLInputElement> | undefined;
 }
-export function Task({ text, isComplete }: TaskProp) {
+export function Task({ text, changeIsComplete, isCompleted }: TaskProp) {
   return (
     <div className={styles.task}>
-      <Checkbox />
-      <p>{text}</p>
+      <CheckBox changeIsComplete={changeIsComplete} />
+      <p className={isCompleted ? styles.completed : ""}>{text}</p>
       <Trash size={20} />
     </div>
   );
