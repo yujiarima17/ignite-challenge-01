@@ -1,8 +1,15 @@
 import styles from "../css/TasksTable.module.css";
 import { PlusCircle } from "phosphor-react";
 import { Task } from "./Task";
-import { ChangeEvent, FormEvent, useState } from "react";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  FormEvent,
+  MouseEventHandler,
+  useState,
+} from "react";
 import { v4 as uuidv4 } from "uuid";
+import { EmptyList } from "./EmptyList";
 interface Task {
   id: string;
   text: string;
@@ -18,10 +25,31 @@ export function TasksTable() {
       ...tasks,
       { id: uuidv4(), text: newtaskText, isCompleted: false },
     ]);
+    console.log(tasks);
   }
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTaskText(event.target.value);
+  }
+
+  function handleCompleteTask(
+    taskToUpdate: Task
+  ): ChangeEventHandler<HTMLInputElement> {
+    return () => {
+      const updatedTasks = tasks.map((task) => {
+        if (task.id === taskToUpdate.id) {
+          console.log("cheguei");
+          return {
+            ...task,
+            isCompleted: !task.isCompleted,
+          };
+        }
+        console.log("cheguei");
+        return task;
+      });
+
+      setTasks(updatedTasks);
+    };
   }
   return (
     <>
@@ -46,13 +74,18 @@ export function TasksTable() {
             </div>
           </div>
           <div className={styles.taskBoard}>
-            {tasks.map((task) => (
-              <Task
-                key={task.id}
-                text={task.text}
-                isComplete={task.isCompleted}
-              ></Task>
-            ))}
+            {tasks.length > 0 ? (
+              tasks.map((task) => (
+                <Task
+                  isCompleted={task.isCompleted}
+                  key={task.id}
+                  text={task.text}
+                  changeIsComplete={handleCompleteTask(task)}
+                ></Task>
+              ))
+            ) : (
+              <EmptyList></EmptyList>
+            )}
           </div>
         </div>
       </div>
