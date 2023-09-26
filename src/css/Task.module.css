@@ -13,6 +13,7 @@
 }
 .task p {
   color: var(--gray-100);
+  overflow: hidden;
 }
 .task button {
   display: flex;

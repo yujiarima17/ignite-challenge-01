@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   height: 174px;
+  width: 100%;
   align-items: center;
 }
-.header img{
+.header img {
   height: 3rem;
 }
