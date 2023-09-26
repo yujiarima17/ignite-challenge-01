@@ -25,7 +25,6 @@ export function TasksTable() {
       ...tasks,
       { id: uuidv4(), text: newtaskText, isCompleted: false },
     ]);
-    console.log(tasks);
   }
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
@@ -43,21 +42,20 @@ export function TasksTable() {
             isCompleted: !task.isCompleted,
           };
         }
-        console.log("cheguei");
         return task;
       });
 
       setTasks(updatedTasks);
     };
   }
+  const tasksCompleted = tasks.filter(
+    (task) => task.isCompleted == true
+  ).length;
   function handleDeleteTask(
     taskToUpdate: Task
   ): MouseEventHandler<HTMLButtonElement> {
     return () => {
-      const updatedTasks = tasks.filter((task) => {
-        task.id == taskToUpdate.id;
-      });
-
+      const updatedTasks = tasks.filter((task) => task.id != taskToUpdate.id);
       setTasks(updatedTasks);
     };
   }
@@ -77,10 +75,10 @@ export function TasksTable() {
         <div className={styles.tasksList}>
           <div className={styles.statusBar}>
             <div className={styles.tarefaConcluida}>
-              Tarefas Criadas <span>0</span>
+              Tarefas Criadas <span>{tasks.length}</span>
             </div>
             <div className={styles.concluida}>
-              Concluídas <span>2 de 5</span>
+              Concluídas <span>{`${tasksCompleted} of ${tasks.length}`}</span>
             </div>
           </div>
           <div className={styles.taskBoard}>

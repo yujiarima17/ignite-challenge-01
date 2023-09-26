@@ -13,6 +13,9 @@
   grid-template-columns: 6.93fr 1fr;
   gap: 8px;
 }
+.taskForm button:hover {
+  background: var(--blue);
+}
 .statusBar {
   display: flex;
   justify-content: space-between;
