@@ -38,7 +38,6 @@ export function TasksTable() {
     return () => {
       const updatedTasks = tasks.map((task) => {
         if (task.id === taskToUpdate.id) {
-          console.log("cheguei");
           return {
             ...task,
             isCompleted: !task.isCompleted,
@@ -46,6 +45,17 @@ export function TasksTable() {
         }
         console.log("cheguei");
         return task;
+      });
+
+      setTasks(updatedTasks);
+    };
+  }
+  function handleDeleteTask(
+    taskToUpdate: Task
+  ): MouseEventHandler<HTMLButtonElement> {
+    return () => {
+      const updatedTasks = tasks.filter((task) => {
+        task.id == taskToUpdate.id;
       });
 
       setTasks(updatedTasks);
@@ -81,6 +91,7 @@ export function TasksTable() {
                   key={task.id}
                   text={task.text}
                   changeIsComplete={handleCompleteTask(task)}
+                  deleteTask={handleDeleteTask(task)}
                 ></Task>
               ))
             ) : (
