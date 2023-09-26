@@ -14,6 +14,19 @@
 .task p {
   color: var(--gray-100);
 }
-.completed{
+.task button {
+  display: flex;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 3px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+.task button:hover {
+  background: var(--gray-400);
+  color: var(--danger);
+}
+.completed {
   text-decoration: line-through;
 }
