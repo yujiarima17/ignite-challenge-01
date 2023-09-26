@@ -5,7 +5,6 @@ import {
   ChangeEvent,
   ChangeEventHandler,
   FormEvent,
-  InvalidEvent,
   MouseEventHandler,
   useState,
 } from "react";
@@ -21,6 +20,9 @@ export function TasksTable() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newtaskText, setNewTaskText] = useState("");
   const isNewTaskEmpty = newtaskText.length == 0;
+  const tasksCompleted = tasks.filter(
+    (task) => task.isCompleted == true
+  ).length;
   function handleSubmitTask(e: FormEvent) {
     e.preventDefault();
     setTasks([
@@ -51,9 +53,6 @@ export function TasksTable() {
     };
   }
 
-  const tasksCompleted = tasks.filter(
-    (task) => task.isCompleted == true
-  ).length;
   function handleDeleteTask(
     taskToUpdate: Task
   ): MouseEventHandler<HTMLButtonElement> {
