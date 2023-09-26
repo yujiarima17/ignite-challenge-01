@@ -5,6 +5,7 @@ import {
   ChangeEvent,
   ChangeEventHandler,
   FormEvent,
+  InvalidEvent,
   MouseEventHandler,
   useState,
 } from "react";
@@ -19,6 +20,7 @@ interface Task {
 export function TasksTable() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newtaskText, setNewTaskText] = useState("");
+  const isNewTaskEmpty = newtaskText.length == 0;
   function handleSubmitTask(e: FormEvent) {
     e.preventDefault();
     setTasks([
@@ -48,6 +50,7 @@ export function TasksTable() {
       setTasks(updatedTasks);
     };
   }
+
   const tasksCompleted = tasks.filter(
     (task) => task.isCompleted == true
   ).length;
@@ -67,8 +70,9 @@ export function TasksTable() {
             type="text"
             placeholder="Adicionar uma nova tarefa!"
             onChange={handleNewTaskChange}
+            required
           />
-          <button>
+          <button disabled={isNewTaskEmpty}>
             Criar <PlusCircle size={20} />
           </button>
         </form>
